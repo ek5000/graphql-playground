@@ -1,10 +1,19 @@
+import * as React from 'react';
+import { Provider } from 'react-redux';
+
 import PlaygroundWrapper from './components/PlaygroundWrapper'
 import GraphQLEditor from './components/Playground/GraphQLEditor'
 import { store } from './components/GraphQLBinApp'
 
 export { PlaygroundWrapper as Playground, GraphQLEditor }
 
-export default PlaygroundWrapper
+export default function PlaygroundWrapperWithStore(props) {
+    return (
+        <Provider store={store}>
+            <PlaygroundWrapper {...props} />
+        </Provider>
+    );
+}
 
 export { store }
 
